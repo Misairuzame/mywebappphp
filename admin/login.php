@@ -1,16 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>login</title>
+		<title>Login amministratore</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<body class="landing is-preload">
 		<div id="page-wrapper">
 			<header id="header">
-				<a href="../home.php" ><h2 style="color: white;">UnifePost</h2></a>
+				<a href="../home.php" ><h2 style="color: white; margin-left: 5px;">UnifePost</h2></a>
 				<nav id="nav">
 					<ul>
 						<li><a href="home.php">Home</a></li>
@@ -37,15 +36,15 @@
 							<br>
 							<form action="confirmLogin.php" method="post" class="row gtr-uniform">
 								<div class="col-6 col-12-mobile">
-									<label for="username"> Username: </label>
+									<label for="username">Username:</label>
 									<input type="text" id="username" name="username" autocomplete="username"/>
 								</div>
 								<div class="col-6 col-12-mobile">
-									<label for="password"> Password: </label>
+									<label for="password">Password:</label>
 									<input type="password" id="password" name="password" autocomplete="password"/>
 								</div>
 								<div class="col-6 col-12-mobile">
-									<input type="submit" value="Sign In"/>
+									<input type="submit" value="Accedi"/>
 								</div>
 								<div class="col-6 col-12-mobile">
 									<a href="register.php" class="button">Registrati</a>
@@ -56,6 +55,5 @@
 				</div>
 			</section>
 		</div>
-		<?php include 'bottom.inc';?>
 	</body>
 </html>

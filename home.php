@@ -2,27 +2,11 @@
 require_once 'db.php';
 require_once 'test_input.php';
 
-/**
- * VULNERABILE
- */
-function search_posts($testo){
-    $conn = connect();
-    $stmt = $conn->prepare("SELECT * FROM posts WHERE testo LIKE '%".$testo."%'");
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
 function get_all_posts(){
     $conn = connect();
-    $stmt = $conn->prepare("SELECT * FROM posts ORDER BY date DESC");
+    $stmt = $conn->prepare("SELECT * FROM posts ORDER BY date DESC, id DESC");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-$srch = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $srch = $_GET["text"];
 }
 ?>
 
@@ -46,11 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 } ?>
                 <?php
                 try {
-                    if (strlen($srch) > 0) {
-                        $rows = search_posts($srch);
-                    } else {
-                        $rows = get_all_posts();
-                    }
+                    $rows = get_all_posts();
                     if (count($rows) == 0) {
                         echo '<div class="col-12 col-12-mobile"><h3>Nessun post trovato nel database</h3></div>';
                     } else {
@@ -73,14 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 } catch (Exception $e) {
                     echo '<h3 class="error">'.$e.'</h3>';
                 }
-                
                 ?>
             <input type="button" onclick="location.href='./searchPosts.php';" value="Clicca qui cercare fra i post" />
-            <input type="button" onclick="location.href='./new-post.php';" value="Inserisci un post" />
+            <input type="button" onclick="location.href='./newPost.php';" value="Inserisci un post" />
             </div>
         </div>
     </section>
 </div>
-<?php include 'bottom.inc';?>
 </body>
 </html>

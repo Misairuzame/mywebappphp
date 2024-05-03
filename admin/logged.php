@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once '../db.php';
 session_start();
 function logged() {
     $err_login = "Location: login.php?error=esegui il login per vedere questa pagina";

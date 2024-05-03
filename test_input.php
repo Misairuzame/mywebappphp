@@ -2,5 +2,6 @@
 function test_input($d): string {
     $d = trim($d);
     $d = stripslashes($d);
-    return htmlspecialchars($d);
+    $d = htmlspecialchars($d);
+    return $d;
 }

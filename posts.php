@@ -36,7 +36,7 @@ function print_posts(){
         <div class="row">
             <div class="col-12">
                 <h2>Posts</h2>
-                <a href="new-post.php" class="button">Inserisci un nuovo post</a>
+                <a href="newPost.php" class="button">Inserisci un nuovo post</a>
                 <br><hr>
                 <?php
                 if(count($rows)==0){
@@ -57,6 +57,5 @@ function print_posts(){
         </div>
     </section>
 </div>
-<?php include 'bottom.inc';?>
 </body>
 </html>

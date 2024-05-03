@@ -65,6 +65,5 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         </div>
     </section>
 </div>
-<?php include 'bottom.inc';?>
 </body>
 </html>

@@ -5,7 +5,7 @@ logged();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["data"])) {
-        header("Location: new-post.php?error=La data è obbligatoria");
+        header("Location: newPost.php?error=La data è obbligatoria");
         die();
     } else {
         $data = test_input($_POST["data"]);

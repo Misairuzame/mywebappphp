@@ -4,32 +4,17 @@
     <nav id="nav">
         <ul>
             <li><a href="home.php">Home</a></li>
-            <li>
-                <?php
-                $lgd = isset($_SESSION["uname"]);
-                if ($lgd) {
-                    $text = "Benvenuto ".$_SESSION["uname"];
-                }
-                else {
-                    $text = "Login";
-                }
-                ?>
-                <a href="#" class="icon solid fa-angle-down"><?php echo $text; ?></a>
-                <ul>
-                <?php
-                if ($lgd) {
-                ?>
-                    <li><a href="posts.php">Posts</a></li>
-                    <li><a href="logout.php">Logout</a></li>
-                <?php
-                } else {
-                ?>
-                    <li><a href="login.php">Login</a></li>
-                <?php
-                }
-                ?>
-                </ul>
-            </li>
+            <?php
+            $lgd = isset($_SESSION["uname"]);
+            if ($lgd) {
+                echo '<li><a href="#">Benvenuto '.$_SESSION["uname"].'</a></li>
+                        <li><a href="posts.php">Posts</a></li>
+                        <li><a href="logout.php">Logout</a></li>';
+            }
+            else {
+                echo '<li><a href="login.php">Login</a></li>';
+            }
+            ?>
         </ul>
     </nav>
-</header>	
+</header>

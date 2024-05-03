@@ -30,9 +30,9 @@ try {
     $stmt = $conn->prepare($sql);
     $false = false;
     $stmt->bindParam(':uname', $uname);
-    $stmt->bindParam(':hash', $hash);
+    $stmt->bindParam(':pwd_hash', $pwd_hash);
     $stmt->execute();
-    $msg = "<h3>Registrazione completata</h3><h3>Benvenuto ".$uname." ora puoi fare il login</h3>";
+    $msg = "<h3>Registrazione completata</h3><h3>Benvenuto ".$uname.", ora puoi fare il login</h3>";
 } catch(PDOException $e) {
     echo "<h2 class='error'>SQL error<br>" . $e->getMessage()."</h2>";
 }
@@ -47,7 +47,6 @@ $conn = null;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body class="landing is-preload">
 <div id="page-wrapper">
@@ -80,6 +79,5 @@ $conn = null;
         </div>
     </section>
 </div>
-<?php include 'bottom.inc';?>
 </body>
 </html>
