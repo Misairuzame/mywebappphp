@@ -1,6 +1,0 @@
-projectKey=mywebabbphp
-serverUrl=http://172.17.0.1:9000
-serverVersion=10.5.1.90531
-dashboardUrl=http://172.17.0.1:9000/dashboard?id=mywebabbphp
-ceTaskId=c5e0c8d0-a2de-4e5f-b6d6-3cc4f876eaf5
-ceTaskUrl=http://172.17.0.1:9000/api/ce/task?id=c5e0c8d0-a2de-4e5f-b6d6-3cc4f876eaf5

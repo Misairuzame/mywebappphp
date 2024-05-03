@@ -34,7 +34,7 @@ try {
         die();
     } else {
         $user = $rows[0];
-        if (md5($user_password) == $user['password']){
+        if (md5($user_password) === $user['password']){
             session_start();
             $_SESSION["uname"] = $uname;
             setcookie("logged", $uname, time() + (86400 * 30), "/");
