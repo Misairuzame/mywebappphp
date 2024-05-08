@@ -5,9 +5,9 @@ require_once 'test_input.php';
 /**
  * VULNERABILE
  */
-function search_posts($testo){
+function search_tickets($testo){
     $conn = connect();
-    $stmt = $conn->prepare("SELECT * FROM posts WHERE testo LIKE '%".$testo."%'");
+    $stmt = $conn->prepare("SELECT * FROM tickets WHERE testo LIKE '%".$testo."%'");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Benvenuto</title>
+    <title>Risultati di ricerca</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 <h2>Hai cercato: <?php echo test_input($srch) ?></h2>
                 <?php
                 try {
-                    $rows = search_posts($srch);
+                    $rows = search_tickets($srch);
                     if (count($rows) == 0) {
-                        echo '<div class="col-12 col-12-mobile"><h3>Nessun post trovato</h3></div>';
+                        echo '<div class="col-12 col-12-mobile"><h3>Nessun ticket trovato</h3></div>';
                     } else {
                         echo '
                         <div class="table-wrapper">
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 } catch (Exception $e) {
                     echo '<h3 class="error">'.$e.'</h3>';
                 }
-                echo '<input type="button" onclick="location.href=\'./searchPosts.php\';" value="Clicca qui per effettuare una nuova ricerca" />';
+                echo '<input type="button" onclick="location.href=\'./searchTickets.php\';" value="Clicca qui per effettuare una nuova ricerca" />';
                 ?>
             </div>
         </div>

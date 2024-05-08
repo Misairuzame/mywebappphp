@@ -7,7 +7,7 @@ if(logged()) {
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Nuovo post</title>
+    <title>Nuovo ticket</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -21,14 +21,14 @@ if(logged()) {
                 <section class="box">
                     <div class="row gtr-uniform">
                         <div class="col-12 col-12-mobile">
-                            <h2>Nuovo post</h2>
+                            <h2>Nuovo ticket</h2>
                         </div>
                     </div>
                     <?php if (isset($_GET['error']) && $_GET['error'] != '') {
                         echo '<div class="col-12 col-12-mobile"><h3 class="error">'.$_GET['error'].'</h3></div>';
                     } ?>
                     <br>
-                    <form action="salvaPost.php" method="post" class="row gtr-uniform">
+                    <form action="salvaTicket.php" method="post" class="row gtr-uniform">
                         <div class="col-3 col-12-mobile">
                             <label for="data">Data: </label>
                             <input type="date" id="data" name="data" autocomplete="data" required
@@ -36,10 +36,10 @@ if(logged()) {
                         </div>
                         <div class="col-12 col-12-mobile">
                             <label for="testo">Testo: </label>
-                            <textarea name="testo" id="testo" placeholder="Inserisci un testo" rows="3" maxlength="512"></textarea>
+                            <textarea name="testo" id="testo" placeholder="Inserisci il testo del ticket" rows="3" maxlength="512"></textarea>
                         </div>
                         <div class="col-12 col-12-mobile">
-                            <input type="submit" value="Inserisci post"/>
+                            <input type="submit" value="Inserisci ticket"/>
                         </div>
                     </form>
                 </section>

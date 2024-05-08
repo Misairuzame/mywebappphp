@@ -2,9 +2,9 @@
 require_once 'db.php';
 require_once 'test_input.php';
 
-function get_all_posts(){
+function get_all_tickets(){
     $conn = connect();
-    $stmt = $conn->prepare("SELECT * FROM posts ORDER BY date DESC, id DESC");
+    $stmt = $conn->prepare("SELECT * FROM tickets ORDER BY date DESC, id DESC");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -24,15 +24,15 @@ function get_all_posts(){
     <section id="main" class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Lista dei post</h2>
+                <h2>Lista dei ticket</h2>
                 <?php if (isset($_GET['error']) && $_GET['error'] != '') {
                     echo '<div class="col-12 col-12-mobile"><h3 class="error">'.$_GET['error'].'</h3></div>';
                 } ?>
                 <?php
                 try {
-                    $rows = get_all_posts();
+                    $rows = get_all_tickets();
                     if (count($rows) == 0) {
-                        echo '<div class="col-12 col-12-mobile"><h3>Nessun post trovato nel database</h3></div>';
+                        echo '<div class="col-12 col-12-mobile"><h3>Nessun ticket trovato nel database</h3></div>';
                     } else {
                         echo '
                         <div class="table-wrapper">
@@ -54,8 +54,8 @@ function get_all_posts(){
                     echo '<h3 class="error">'.$e.'</h3>';
                 }
                 ?>
-            <input type="button" onclick="location.href='./searchPosts.php';" value="Clicca qui cercare fra i post" />
-            <input type="button" onclick="location.href='./newPost.php';" value="Inserisci un post" />
+            <input type="button" onclick="location.href='./searchTickets.php';" value="Clicca qui cercare fra i ticket" />
+            <input type="button" onclick="location.href='./newTicket.php';" value="Inserisci un ticket" />
             </div>
         </div>
     </section>

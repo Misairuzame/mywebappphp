@@ -3,14 +3,14 @@ require_once '../db.php';
 require_once '../test_input.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["username"])) {
-        header("Location: login.php?error=username is required");
+        header("Location: login.php?error=Username is required");
         die();
     } else {
         $uname = test_input($_POST["username"]);
     }
 
     if (empty($_POST["password"])) {
-        header("Location: login.php?error=password is required");
+        header("Location: login.php?error=Password is required");
         die();
     } else {
         $user_password = test_input($_POST["password"]);

@@ -2,7 +2,7 @@
 require_once '../db.php';
 session_start();
 function logged() {
-    $err_login = "Location: login.php?error=esegui il login per vedere questa pagina";
+    $err_login = "Location: login.php?error=Esegui il login per vedere questa pagina";
     if (!empty($_SESSION["uname"])) {
         return true;
     } else {

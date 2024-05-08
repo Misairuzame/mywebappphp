@@ -5,7 +5,7 @@ logged();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["data"])) {
-        header("Location: newPost.php?error=La data è obbligatoria");
+        header("Location: newTicket.php?error=La data è obbligatoria");
         die();
     } else {
         $data = test_input($_POST["data"]);
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 try {
     $conn = connect();
-    $sql = "INSERT INTO posts (date, testo, username) VALUES (:data, :testo, :uname)";
+    $sql = "INSERT INTO tickets (date, testo, username) VALUES (:data, :testo, :uname)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':data', $data);
     $STMTCommento = (strlen($commento)!=0)? $commento:"---";
@@ -25,7 +25,7 @@ try {
     $stmt->bindParam(':uname', $_SESSION["uname"]);
     $stmt->execute();
     $conn=null;
-    header("Location: home.php?error=Post inserito");
+    header("Location: home.php?error=Ticket inserito");
     die();
 } catch(PDOException $e) {
     var_dump($e->getTrace());
